@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Http\Resources\ShowUserRecource;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,7 @@ class UserController extends Controller
     public function show(string $id)
     {
         $user = User::find($id);
+        $user = new ShowUserRecource($user);
         return response()->json(['Show user by id success'=>true, 'data'=>$user], 201);
     }
 

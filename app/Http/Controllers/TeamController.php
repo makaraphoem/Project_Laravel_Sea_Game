@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TeamRequest;
+use App\Http\Resources\ShowTeamRecource;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,7 @@ class TeamController extends Controller
     public function show(string $id)
     {
         $team = Team::find($id);
+        $team = new ShowTeamRecource($team);
         return response()->json(['Show team by id success'=>true, 'data'=>$team], 201);
   
     }

@@ -31,18 +31,13 @@ class EventRequest extends FormRequest
             'name' => [
                 'required',
                 'min:5',
-                'max:10',
-                'unique:events',
-                Rule::unique('events')->ignore($this->id)
+                'max:50',
             ], 
             'description' => [
                 'required',
-                'unique:events',
-                Rule::unique('events')->ignore($this->id)
             ], 
             'date_time' => [
                 'required',
-                // Rule::unique('events')->ignore($this->id)
                 ]
                 
         ];

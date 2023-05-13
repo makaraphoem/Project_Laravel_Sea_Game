@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EventRequest;
+use App\Http\Resources\ShowEventRecource;
 use App\Models\Event;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,8 @@ class EventControll extends Controller
     public function index()
     {
         $events = Event::all();
+        $name = request('name');
+        $events = Event::where('name', 'like', '%'.$name.'%')->get();
         return response()->json(['Get event success'=>true, 'data'=>$events], 200);
     }
 
@@ -32,6 +35,7 @@ class EventControll extends Controller
     public function show(string $id)
     {
         $event = Event::find($id);
+        $event = new ShowEventRecource($event);
         return response()->json(['Show event by id success'=>true, 'data'=>$event], 201);
   
     }
