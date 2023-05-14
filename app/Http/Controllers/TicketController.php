@@ -14,7 +14,9 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        $tickets = Ticket::all();
+        $tickets =  ShowTicketRecource::collection($tickets);
+        return response()->json(['Get ticket success'=>true, 'data'=>$tickets], 200);
     }
 
     /**

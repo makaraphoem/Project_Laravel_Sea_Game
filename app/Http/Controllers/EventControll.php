@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EventRequest;
 use App\Http\Resources\ShowEventRecource;
 use App\Models\Event;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class EventControll extends Controller
@@ -17,6 +18,7 @@ class EventControll extends Controller
         $events = Event::all();
         $name = request('name');
         $events = Event::where('name', 'like', '%'.$name.'%')->get();
+        $events =  ShowEventRecource::collection($events);
         return response()->json(['Get event success'=>true, 'data'=>$events], 200);
     }
 
@@ -25,6 +27,7 @@ class EventControll extends Controller
      */
     public function store(EventRequest $request)
     {
+       
         $event = Event::store($request);
         return response()->json(['Create event success'=>true, 'data'=>$event], 201);
     }

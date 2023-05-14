@@ -15,6 +15,7 @@ class TeamController extends Controller
     public function index()
     {
         $teams = Team::all();
+        $teams = ShowTeamRecource::collection($teams);
         return response()->json(['Get team success'=>true, 'data'=>$teams], 200);
     }
 

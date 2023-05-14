@@ -23,8 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('/users', EventControll::class);
-Route::resource('/events', UserController::class);
+Route::resource('/users', UserController::class);
+Route::resource('/events', EventControll::class);
 Route::resource('/teams', TeamController::class);
 Route::resource('/eventteams', EventTeamController::class);
 Route::resource('/tickets', TicketController::class);

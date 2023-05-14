@@ -20,7 +20,8 @@ class ShowEventRecource extends JsonResource
             'description'=> $this->description,
             'location'=>$this->location,
             'date_time'=> $this->date_time,
-            'created_by'=>$this->user
+            'created_by'=>$this->user,
+            'ticket_in_event'=>$this->tickets
         ];
     }
 }

@@ -18,7 +18,7 @@ class ShowUserRecource extends JsonResource
             'id' => $this->id,
             'name'=> $this->name,
             'email'=> $this->email,
-            'phone_number'=>$this->phone,
+            'phone_number'=>$this->phone_number,
             'password'=> $this->password,
             'created_event'=>$this->events,
             'created_ticket'=>$this->tickets,
