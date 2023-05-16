@@ -33,8 +33,10 @@ class UserRequest extends FormRequest
                 'min:5',
                 'max:10',
                 'unique:users',
-                Rule::unique('users')->ignore($this->id)
+                // Rule::unique('users')->ignore($this->id),
+                Rule::unique('users')->ignore($this->id),
             ], 
+    
             'email' => [
                 'required',
                 'email',
@@ -43,9 +45,15 @@ class UserRequest extends FormRequest
             ], 
             'phone_number' => [
                 'required',
-
+                'regex:/^[0-9]{10}$/',
+                Rule::unique('users')->ignore($this->id)
             ], 
-            'password' => 'required|min:8|unique:users',
+            'password' => [
+                'required',
+                'min:8',
+                'unique:users',
+                Rule::unique('users')->ignore($this->id)
+            ]
         ];
     }
 }

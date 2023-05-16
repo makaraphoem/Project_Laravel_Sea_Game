@@ -19,9 +19,11 @@ class ShowEventRecource extends JsonResource
             'name'=> $this->name,
             'description'=> $this->description,
             'location'=>$this->location,
-            'date_time'=> $this->date_time,
+            'start_date'=> $this->start_date,
+            'end_date'=> $this->end_date,
             'created_by'=>$this->user,
-            'ticket_in_event'=>$this->tickets
+            'ticket_in_event'=>TicketResource::collection($this->tickets),
+            'match_teams'=>TeamResource::collection($this->teams)
         ];
     }
 }

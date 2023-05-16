@@ -15,13 +15,18 @@ class Event extends Model
         'name',
         'description',
         'location',
-        'date_time',
+        'start_date',
+        'end_date',
         'user_id'
     ];
 
     public static function store($request, $id=null){
-        $event = $request->only(['name', 'description', 'location', 'date_time', 'user_id']);
+        $event = $request->only(['name', 'description', 'location', 'start_date', 'end_date','user_id']);
         $event = self::updateOrCreate(['id' => $id], $event);
+        $teams = request('teams');
+        $event->teams()->sync($teams);
+        // dd($event);
+        
         return $event;
     }
 
@@ -33,6 +38,10 @@ class Event extends Model
     public function tickets():HasMany
     {
         return $this->hasMany(Ticket::class);
+    }
+    public function teams()
+    {
+        return $this->belongsToMany(Team::class, 'event_teams')->withTimestamps();
     }
 
 }

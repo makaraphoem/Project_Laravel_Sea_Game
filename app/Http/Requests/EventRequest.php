@@ -36,7 +36,10 @@ class EventRequest extends FormRequest
             'description' => [
                 'required',
             ], 
-            'date_time' => [
+            'start_date' => [
+                'required',
+            ],
+            'end_date' => [
                 'required',
                 ]
                 

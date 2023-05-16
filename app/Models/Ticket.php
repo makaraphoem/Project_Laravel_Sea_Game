@@ -10,14 +10,13 @@ class Ticket extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'date_time',
         'price',
         'user_id',
         'event_id',
     ];
 
     public static function store($request, $id=null){
-        $event = $request->only(['date_time', 'price', 'user_id', 'event_id']);
+        $event = $request->only(['price', 'user_id', 'event_id']);
         $event = self::updateOrCreate(['id' => $id], $event);
         return $event;
     }

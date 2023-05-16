@@ -18,7 +18,8 @@ class ShowTeamRecource extends JsonResource
             'id' => $this->id,
             'name'=> $this->name,
             'country'=> $this->country,
-            'created_by'=>$this->user
+            'created_by'=>$this->user,
+            
         ];
     }
 }

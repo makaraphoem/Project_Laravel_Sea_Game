@@ -8,14 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class EventTeam extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'event_id',
-        'team_id',
-    ];
-
-    public static function store($request, $id=null){
-        $eventTeam = $request->only(['event_id', 'team_id']);
-        $eventTeam = self::updateOrCreate(['id' => $id], $eventTeam);
-        return $eventTeam;
-    }
+    
 }

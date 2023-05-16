@@ -27,10 +27,9 @@ class TicketRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date_time' => 'required',
             'price' => 'required',
             'user_id' => 'required',
-            'event_id' => 'required',
+            'event_id' => ['required', 'exists:tickets,id', 'unique:tickets'],
         ];
     }
 }
