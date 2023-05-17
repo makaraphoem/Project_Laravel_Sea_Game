@@ -23,7 +23,7 @@ class ShowEventRecource extends JsonResource
             'end_date'=> $this->end_date,
             'created_by'=>$this->user,
             'ticket_in_event'=>TicketResource::collection($this->tickets),
-            'match_teams'=>TeamResource::collection($this->teams)
+            'match_teams'=>TeamResource::collection($this->teams), 
         ];
     }
 }

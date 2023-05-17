@@ -19,7 +19,7 @@ class ShowTeamRecource extends JsonResource
             'name'=> $this->name,
             'country'=> $this->country,
             'created_by'=>$this->user,
-            
+            'join_event'=>EventResource::collection($this->events) 
         ];
     }
 }

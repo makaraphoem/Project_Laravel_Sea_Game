@@ -18,7 +18,8 @@ class ShowTicketRecource extends JsonResource
             'id' => $this->id,
             'price'=> $this->price,
             'buy_by'=>$this->user,
-            'event'=>$this->event,
+            'event'=> $this->event, 
+            'team_match'=>$this->event->teams,
         ];
     }
 }

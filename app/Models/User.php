@@ -44,24 +44,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    // ________________________create and update user__________
     public static function store($request, $id=null){
         $user = $request->only(['name', 'email', 'password', 'phone_number']);
         $user['password'] = Hash::make($user['password']);
         $user = self::updateOrCreate(['id' => $id], $user);
         return $user;
     }
-
+    // __________________________relationship___________________
     public function events():HasMany
     {
         return $this->hasMany(Event::class);
     }
-
     public function teams():HasMany
     {
         return $this->hasMany(Team::class);
     }
-
     public function tickets():HasMany
     {
         return $this->hasMany(Ticket::class);

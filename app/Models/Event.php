@@ -19,22 +19,19 @@ class Event extends Model
         'end_date',
         'user_id'
     ];
-
+    // _______________________create and update event__________
     public static function store($request, $id=null){
         $event = $request->only(['name', 'description', 'location', 'start_date', 'end_date','user_id']);
         $event = self::updateOrCreate(['id' => $id], $event);
         $teams = request('teams');
         $event->teams()->sync($teams);
-        // dd($event);
-        
         return $event;
     }
-
+    // __________________________relationship___________________
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-
     public function tickets():HasMany
     {
         return $this->hasMany(Ticket::class);
@@ -43,5 +40,4 @@ class Event extends Model
     {
         return $this->belongsToMany(Team::class, 'event_teams')->withTimestamps();
     }
-
 }

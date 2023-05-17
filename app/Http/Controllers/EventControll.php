@@ -27,7 +27,6 @@ class EventControll extends Controller
      */
     public function store(EventRequest $request)
     {
-       
         $event = Event::store($request);
         return response()->json(['Create event success'=>true, 'data'=>$event], 201);
     }

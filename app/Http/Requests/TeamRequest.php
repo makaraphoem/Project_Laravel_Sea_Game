@@ -32,8 +32,6 @@ class TeamRequest extends FormRequest
                 'required',
                 'min:5',
                 'max:10',
-                'unique:teams',
-                Rule::unique('teams')->ignore($this->id)
             ], 
             'country' => [
                 'required',

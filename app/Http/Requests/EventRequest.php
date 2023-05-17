@@ -33,16 +33,9 @@ class EventRequest extends FormRequest
                 'min:5',
                 'max:50',
             ], 
-            'description' => [
-                'required',
-            ], 
-            'start_date' => [
-                'required',
-            ],
-            'end_date' => [
-                'required',
-                ]
-                
+            'description' => 'required',
+            'start_date' => 'required',
+            'end_date' =>   'required',      
         ];
     }
 }

@@ -14,18 +14,17 @@ class Ticket extends Model
         'user_id',
         'event_id',
     ];
-
+    // _______________________create and update ticket__________
     public static function store($request, $id=null){
         $event = $request->only(['price', 'user_id', 'event_id']);
         $event = self::updateOrCreate(['id' => $id], $event);
         return $event;
     }
-    
+     // __________________________relationship___________________
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class);

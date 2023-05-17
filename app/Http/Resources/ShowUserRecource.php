@@ -21,8 +21,7 @@ class ShowUserRecource extends JsonResource
             'phone_number'=>$this->phone_number,
             'created_event'=>EventResource::collection($this->events),
             'created_ticket'=>TicketResource::collection($this->tickets),
-            'created_team'=>TeamResource::collection($this->teams)
-            
+            'created_team'=>TeamResource::collection($this->teams) 
         ];
     }
 }

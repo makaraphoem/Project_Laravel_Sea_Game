@@ -14,13 +14,13 @@ class Team extends Model
         'country',
         'user_id'
     ];
-
+    // _______________________create and update team__________
     public static function store($request, $id=null){
         $team = $request->only(['name', 'country', 'user_id']);
         $team = self::updateOrCreate(['id' => $id], $team);
         return $team;
     }
-
+    // __________________________relationship_________________
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

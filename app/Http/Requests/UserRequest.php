@@ -33,10 +33,8 @@ class UserRequest extends FormRequest
                 'min:5',
                 'max:10',
                 'unique:users',
-                // Rule::unique('users')->ignore($this->id),
                 Rule::unique('users')->ignore($this->id),
             ], 
-    
             'email' => [
                 'required',
                 'email',

@@ -8,5 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class EventTeam extends Model
 {
     use HasFactory;
-    
 }
